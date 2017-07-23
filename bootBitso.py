@@ -79,20 +79,20 @@ def getXrp(bot=miBot, update=miBotUpdater):
     low = datesAllMony["low"]
     bot.sendMessage(chat_id=update.message.chat_id, text="%s \n  Costo Actual: %s\n Volumen: %s\n high: %s\n low: %s" % (bitCoint, bidTime, volumen, high, low))
 
+if __name__ == '__main__':
+    start_handler = CommandHandler('start', start)
+    ayuda_handler = CommandHandler('?', ayuda)
+    btc_handler = CommandHandler('btc', getBtc)
+    eth_handler = CommandHandler('eth', getEth)
+    xrp_handler = CommandHandler('xrp', getXrp)
 
-start_handler = CommandHandler('start', start)
-ayuda_handler = CommandHandler('?', ayuda)
-btc_handler = CommandHandler('btc', getBtc)
-eth_handler = CommandHandler('eth', getEth)
-xrp_handler = CommandHandler('xrp', getXrp)
-
-dispatcher = miBotUpdater.dispatcher
-dispatcher.add_handler(start_handler)
-dispatcher.add_handler(ayuda_handler)
-dispatcher.add_handler(btc_handler)
-dispatcher.add_handler(eth_handler)
-dispatcher.add_handler(xrp_handler)
-miBotUpdater.start_polling()
+    dispatcher = miBotUpdater.dispatcher
+    dispatcher.add_handler(start_handler)
+    dispatcher.add_handler(ayuda_handler)
+    dispatcher.add_handler(btc_handler)
+    dispatcher.add_handler(eth_handler)
+    dispatcher.add_handler(xrp_handler)
+    miBotUpdater.start_polling()
 
 #def listener(*mensajes):
 #    for m in mensajes:
