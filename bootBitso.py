@@ -2,6 +2,8 @@ import requests
 import telebot
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
+import flask
+app = flask.Flask(__name__)
 
 
 url = "https://api.bitso.com/v3/available_books/"
@@ -79,7 +81,8 @@ def getXrp(bot=miBot, update=miBotUpdater):
     low = datesAllMony["low"]
     bot.sendMessage(chat_id=update.message.chat_id, text="%s \n  Costo Actual: %s\n Volumen: %s\n high: %s\n low: %s" % (bitCoint, bidTime, volumen, high, low))
 
-if __name__ == '__main__':
+@app.route("/")
+def index():
     start_handler = CommandHandler('start', start)
     ayuda_handler = CommandHandler('?', ayuda)
     btc_handler = CommandHandler('btc', getBtc)
@@ -107,8 +110,8 @@ if __name__ == '__main__':
 #miBot.set_update_listener(listener) #registrar la funcion listener
 #miBot.polling()
 
-while True:
-     pass
+
+    return "Hello Heruko"
 #book = "btc_mxn"
 #response = getJsonBitso(url)
 #datesAllMony = response["payload"]
