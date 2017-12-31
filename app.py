@@ -1,5 +1,6 @@
 import requests
 import telebot
+from threading import Timer
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 import flask
@@ -81,6 +82,9 @@ def getXrp(bot=miBot, update=miBotUpdater):
     low = datesAllMony["low"]
     bot.sendMessage(chat_id=update.message.chat_id, text="%s \n  Costo Actual: %s\n Volumen: %s\n high: %s\n low: %s" % (bitCoint, bidTime, volumen, high, low))
 
+def saveToBaseXRP():
+    print("Guardando datos xrp")
+
 @app.route("/")
 def index():
     start_handler = CommandHandler('start', start)
@@ -96,7 +100,9 @@ def index():
     dispatcher.add_handler(eth_handler)
     dispatcher.add_handler(xrp_handler)
     miBotUpdater.start_polling()
-    return "Hello Heruko este es un bot"
+    t = Timer(5.0, saveToBaseXRP)
+    t.start()
+    return "Hello Heruko este es un bot version 2"
 
 if __name__ == "__main__":
 	app.run()
