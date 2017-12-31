@@ -96,7 +96,7 @@ def index():
     dispatcher.add_handler(eth_handler)
     dispatcher.add_handler(xrp_handler)
     miBotUpdater.start_polling()
-    return "Hello Heruko"
+    return "Hello Heruko este es un bot"
 
 if __name__ == "__main__":
 	app.run()
