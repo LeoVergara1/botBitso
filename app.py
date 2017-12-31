@@ -31,7 +31,7 @@ def getBookForMony(urlTicker, book):
 
 def start(bot=miBot, update=miBotUpdater):
     print("Iniciada conversacion: ")
-    print update.message.chat_id
+    print(update.message.chat_id)
     bot.sendMessage(chat_id=update.message.chat_id, text="Hola Leo, soy tu bot!!!")
 
 def ayuda(bot=miBot, update=miBotUpdater):
