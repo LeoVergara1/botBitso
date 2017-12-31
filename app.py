@@ -96,6 +96,10 @@ def index():
     dispatcher.add_handler(eth_handler)
     dispatcher.add_handler(xrp_handler)
     miBotUpdater.start_polling()
+    return "Hello Heruko"
+
+if __name__ == "__main__":
+	app.run()
 
 #def listener(*mensajes):
 #    for m in mensajes:
@@ -111,7 +115,6 @@ def index():
 #miBot.polling()
 
 
-    return "Hello Heruko"
 #book = "btc_mxn"
 #response = getJsonBitso(url)
 #datesAllMony = response["payload"]
