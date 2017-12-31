@@ -9,7 +9,7 @@ app = flask.Flask(__name__)
 url = "https://api.bitso.com/v3/available_books/"
 TOKEN = "316079447:AAFqda8IcsMzHTuADwmA6OMsgGH9de_5-GU"
 miBot = telebot.TeleBot(TOKEN)
-miBotUpdater = Updater(miBot.token)
+miBotUpdater = Updater(TOKEN)
 
 def getJsonBitso(url):
     response = requests.get(url)
