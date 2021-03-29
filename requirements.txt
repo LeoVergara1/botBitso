@@ -19,7 +19,7 @@ MarkupSafe==1.0
 mycli==1.13.1
 prompt-toolkit==1.0.15
 pycparser==2.18
-Pygments==2.2.0
+Pygments==2.7.4
 PyMySQL==0.7.11
 python-telegram-bot==9.0.0
 request==0.0.22
